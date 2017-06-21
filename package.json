@@ -1,0 +1,32 @@
+{
+  "name": "speedtest-exporter",
+  "version": "0.0.1",
+  "description": "Prometheus exporter for speedtest-net.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanwalther/speedtest-exporter.git"
+  },
+  "keywords": [
+    "speedtest",
+    "prometheus",
+    "prometheus-exporter",
+    "bandwith",
+    "speed-test",
+    "speedtest-cli"
+  ],
+  "author": "Stefan Walther <swr.nixda@gmail.com> (http://qliksite.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stefanwalther/speedtest-exporter/issues"
+  },
+  "homepage": "https://github.com/stefanwalther/speedtest-exporter#readme",
+  "devDependencies": {
+    "eslint": "^4.0.0",
+    "eslint-config-space-single": "^0.2.0"
+  }
+}
