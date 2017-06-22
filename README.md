@@ -1,2 +1,4 @@
-Work in progress
+# speedtest-exporter
+
+> Prometheus exporter for speedtest-net.
 

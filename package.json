@@ -5,7 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docs": "docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb"
+    "docs": "docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb",
+    "lint": "npm run lint:src",
+    "lint:fix": "npm run lint:src:fix",
+    "lint:src": "eslint src",
+    "lint:src:fix": "eslint src --fix",
+    "d-build": "docker build -t stefanwalther/speedtest-exporter .",
+    "d-run": "docker run stefanwalther/speedtest-exporter",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -28,5 +35,12 @@
   "devDependencies": {
     "eslint": "^4.0.0",
     "eslint-config-space-single": "^0.2.0"
+  },
+  "dependencies": {
+    "convert-hrtime": "^2.0.0",
+    "event-to-promise": "^0.8.0",
+    "koa": "^2.3.0",
+    "koa-route": "^3.2.0",
+    "speedtest-net": "^1.3.1"
   }
 }

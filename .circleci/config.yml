@@ -1,0 +1,21 @@
+machine:
+  environment:
+    DOCKER_IMAGE_NAME: stefanwalther/speedtest-exporter
+    REPO_PATH: github.com/stefanwalther/speedtest-exporter
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - docker build --rm=false -t ${DOCKER_IMAGE_NAME}
+
+test:
+  - while ! curl --retry 10 --retry-delay 5 -v http://0.0.0.0:9696 >/dev/null; do sleep 1; done
+
+deployment:
+  hub:
+    branch: master
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push ${DOCKER_IMAGE_NAME}
+
+
