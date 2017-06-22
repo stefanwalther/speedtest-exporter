@@ -1,19 +1,19 @@
 const Koa = require('koa');
 const _ = require('koa-route');
-const speedTest = require('./speed-test');
+const SpeedTest = require('./speed-test');
 const promFormatter = require('./prom-formatter');
 
 const app = new Koa();
 
 const routes = {
-  metrics: async (ctx) => {
+  metrics: async ctx => {
     console.log('/metrics');
     let testResults;
-    let test = new speedTest();
+    let test = new SpeedTest();
     await test.run()
-      .then( v => {
+      .then(v => {
         testResults = promFormatter.format(v);
-        console.log('speedtest: ', v.speeds.download, v.speeds.upload);
+        console.log('speedtest: ', {download: v.speeds.download, upload: v.speeds.upload, ping: v.server.ping});
       })
       .catch(e => {
         console.log('e', e);

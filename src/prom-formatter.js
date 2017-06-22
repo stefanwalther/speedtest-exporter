@@ -10,7 +10,7 @@ function format(results) {
 
   output += `# TYPE speedtest_ping gauge${lb}`;
   output += `# HELP speedtest_ping Ping in ms${lb}`;
-  output += `speedtest_ping ${resuts.server.ping}${lb}`;
+  output += `speedtest_ping ${results.server.ping}${lb}`;
 
   return output;
 }
