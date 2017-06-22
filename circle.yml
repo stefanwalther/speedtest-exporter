@@ -1,4 +1,6 @@
 machine:
+  node:
+    version: 8.1.2
   environment:
     DOCKER_IMAGE_NAME: stefanwalther/speedtest-exporter
     REPO_PATH: github.com/stefanwalther/speedtest-exporter
@@ -8,6 +10,8 @@ machine:
 dependencies:
   pre:
     - docker build --rm=false -t ${DOCKER_IMAGE_NAME} .
+  override:
+    - npm install
 
 test:
   override:
