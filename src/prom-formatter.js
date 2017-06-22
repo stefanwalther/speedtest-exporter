@@ -8,6 +8,10 @@ function format(results) {
   output += `speedtest_bits_per_second{direction="downstream"} ${results.speeds.download}${lb}`;
   output += `speedtest_bits_per_second{direction="upstream"} ${results.speeds.upload}${lb}`;
 
+  output += `# TYPE speedtest_ping gauge${lb}`;
+  output += `# HELP speedtest_ping Ping in ms${lb}`;
+  output += `speedtest_ping ${resuts.server.ping}${lb}`;
+
   return output;
 }
 
