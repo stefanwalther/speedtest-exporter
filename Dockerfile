@@ -1,15 +1,19 @@
-FROM node:8.1.2
+FROM node:7.9.0
 
+ARG PORT=9696
+ENV PORT=$PORT
 ENV HOME /home
+
+
 RUN mkdir -p $HOME
 WORKDIR $HOME
 
-COPY package.json package-lock.json ./
+COPY package.json ./
 
 RUN npm install
 
 COPY . .
 
-EXPOSE 9696
+EXPOSE $PORT
 
 CMD ["npm", "run", "start"]
