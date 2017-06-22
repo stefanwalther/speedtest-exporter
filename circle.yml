@@ -16,11 +16,11 @@ machine:
 dependencies:
   override:
     - npm install
-    - docker build --rm=false -p 9696:9696 -t ${DOCKER_IMAGE_NAME} .
+    - docker build --rm=false -t ${DOCKER_IMAGE_NAME} .
 
 test:
   override:
-    - docker run -d ${DOCKER_IMAGE_NAME}
+    - docker run -d -p 9696:9696 ${DOCKER_IMAGE_NAME}
     - while ! curl --retry 10 --retry-delay 5 -v http://0.0.0.0:9696 >/dev/null; do sleep 1; done
 
 deployment:
