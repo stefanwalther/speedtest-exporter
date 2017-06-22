@@ -16,7 +16,7 @@ machine:
 dependencies:
   override:
     - npm install
-    - docker build --rm=false -t ${DOCKER_IMAGE_NAME} .
+    - docker build --rm=false -p 9696:9696 -t ${DOCKER_IMAGE_NAME} .
 
 test:
   override:
