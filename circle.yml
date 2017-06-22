@@ -7,7 +7,7 @@ machine:
 
 dependencies:
   pre:
-    - docker build --rm=false -t ${DOCKER_IMAGE_NAME}
+    - docker build --rm=false -t ${DOCKER_IMAGE_NAME} .
 
 test:
   override:
