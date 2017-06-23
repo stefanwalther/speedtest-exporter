@@ -1,4 +1,5 @@
 FROM node:7.9.0
+MAINTAINER "Stefan Walther"
 
 ARG PORT=9696
 
