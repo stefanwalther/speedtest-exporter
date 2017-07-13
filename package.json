@@ -1,6 +1,6 @@
 {
   "name": "speedtest-exporter",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "Prometheus exporter for speedtest-net created with node.js.",
   "main": "index.js",
   "scripts": {
