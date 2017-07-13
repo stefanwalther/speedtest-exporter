@@ -2,8 +2,7 @@ const Koa = require('koa');
 const _ = require('koa-route');
 const SpeedTest = require('./speed-test');
 const promFormatter = require('./prom-formatter');
-const os = require('os');
-const pkg = require('./../package.json');
+const healthCheckRouter = require('./routes/health-check');
 
 class AppServer {
 
@@ -27,21 +26,12 @@ class AppServer {
           });
         ctx.type = 'text/plain; version=0.0.4';
         ctx.body = testResults;
-      },
-      healthcheck: ctx => {
-        ctx.type = 'application/json';
-        ctx.body = {
-          ts: new Date().toJSON(),
-          version: pkg.version,
-          name: pkg.name,
-          repository: pkg.repository,
-          server: os.hostname()
-        };
       }
     };
 
     this.app.use(_.get('/metrics/', routes.metrics));
-    this.app.use(_.get('/health-check', routes.healthcheck));
+    this.app.use(healthCheckRouter.routes());
+    this.app.use(healthCheckRouter.allowedMethods());
   }
 
   /**
