@@ -1,15 +1,19 @@
 {
   "name": "speedtest-exporter",
   "version": "0.0.1",
-  "description": "Prometheus exporter for speedtest-net.",
+  "description": "Prometheus exporter for speedtest-net created with node.js.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run lint && npm run test:unit && npm run test:integration",
+    "test:integration": "mocha --require './test/mocha.conf.js' ./test/integration/**.spec.js",
+    "test:unit": "mocha --require './test/mocha.conf.js' ./test/unit/**.spec.js",
     "docs": "docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb",
-    "lint": "npm run lint:src",
+    "lint": "npm run lint:src && npm run lint:test",
     "lint:fix": "npm run lint:src:fix",
     "lint:src": "eslint src",
     "lint:src:fix": "eslint src --fix",
+    "lint:test": "eslint test",
+    "lint:test:fix": "eslint test --fix",
     "d-build": "docker build -t stefanwalther/speedtest-exporter .",
     "d-run": "docker run stefanwalther/speedtest-exporter",
     "start": "node index.js"
@@ -33,8 +37,12 @@
   },
   "homepage": "https://github.com/stefanwalther/speedtest-exporter#readme",
   "devDependencies": {
+    "chai": "^4.1.0",
     "eslint": "^4.0.0",
-    "eslint-config-space-single": "^0.2.0"
+    "eslint-config-space-single": "^0.2.0",
+    "http-status-codes": "^1.1.6",
+    "mocha": "^3.4.2",
+    "supertest": "^3.0.0"
   },
   "dependencies": {
     "convert-hrtime": "^2.0.0",
