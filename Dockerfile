@@ -1,4 +1,4 @@
-FROM node:7.9.0
+FROM node:9-alpine
 MAINTAINER "Stefan Walther"
 
 ARG PORT=9696
@@ -9,11 +9,9 @@ ENV HOME /home
 RUN mkdir -p $HOME
 WORKDIR $HOME
 
-COPY package.json ./
+COPY . /home
 
 RUN npm install
-
-COPY . .
 
 EXPOSE $PORT
 
