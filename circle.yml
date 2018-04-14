@@ -1,12 +1,11 @@
 # Todos:
 # - Remove top level node dependency
 # - Set the docker version ?
-# - Find out why node 8 fails
 # - experiment with CircleCi 2.0 Beta
 
 machine:
   node:
-    version: 7.9.0
+    version: 9.11.1
   environment:
     DOCKER_IMAGE_NAME: stefanwalther/speedtest-exporter
     REPO_PATH: github.com/stefanwalther/speedtest-exporter
