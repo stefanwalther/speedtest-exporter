@@ -20,6 +20,16 @@ describe('INTEGRATION ==> GET `health-check`', () => {
     appServer.stop();
   });
 
+  it('runs on the default port 9696', () => {
+    return server
+      .get('/health-check')
+      .expect(HttpStatus.OK)
+      .then(res => {
+        expect(res.port).to.exist;
+        expect(res.port).to.be.equal(9696);
+      });
+  });
+
   it('returns a timestamp', () => {
     return server
       .get('/health-check')
