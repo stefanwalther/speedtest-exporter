@@ -12,3 +12,7 @@ gen-readme:					## Generate README.md (using docker-verb)
 build:
 	docker build -t stefanwalther/speedtest-exporter .
 .PHONY: build
+
+run:
+	docker run  -p 9696:9696 stefanwalther/speedtest-exporter
+.PHONY: run
