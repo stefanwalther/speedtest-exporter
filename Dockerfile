@@ -11,7 +11,7 @@ WORKDIR $HOME
 
 COPY . /home
 
-RUN npm install
+RUN npm install --quiet
 
 EXPOSE $PORT
 
