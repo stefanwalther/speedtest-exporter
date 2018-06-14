@@ -3,7 +3,7 @@ MAINTAINER "Stefan Walther"
 
 ARG PORT=9696
 
-ENV PORT=$PORT
+ENV SPEEDTEST_PORT=$PORT
 ENV HOME /home
 
 RUN mkdir -p $HOME
@@ -13,6 +13,7 @@ COPY . /home
 
 RUN npm install --quiet
 
-EXPOSE $PORT
+EXPOSE $SPEEDTEST_PORT
+
 
 CMD ["npm", "run", "start"]

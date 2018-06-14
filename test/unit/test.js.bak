@@ -1,5 +1,5 @@
-const speedTest = require('./../src/speed-test');
-const promFormatter = require('./../src/prom-formatter');
+const speedTest = require('./../../src/speed-test');
+const promFormatter = require('./../../src/prom-formatter');
 
 let test = new speedTest();
 test.run()
