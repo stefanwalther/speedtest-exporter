@@ -7,7 +7,6 @@
     "test": "npm run lint && npm run test:unit && npm run test:integration",
     "test:integration": "mocha --require './test/mocha.conf.js' ./test/integration/**.spec.js",
     "test:unit": "mocha --require './test/mocha.conf.js' ./test/unit/**.spec.js",
-    "docs": "docker run --rm -v ${PWD}:/opt/verb stefanwalther/verb",
     "lint": "npm run lint:src && npm run lint:test",
     "lint:fix": "npm run lint:src:fix",
     "lint:src": "eslint src",

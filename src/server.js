@@ -3,10 +3,9 @@ const _ = require('koa-route');
 const SpeedTest = require('./speed-test');
 const promFormatter = require('./prom-formatter');
 const healthCheckRouter = require('./routes/health-check');
-const metricsrouter = require('./routes/metrics');
 
 const CONFIG = {
-  PORT: process.env['SPEEDTEST_PORT'] || 9696
+  PORT: process.env.SPEEDTEST_PORT || 9696
 };
 
 class AppServer {
@@ -18,7 +17,6 @@ class AppServer {
 
     const routes = {
       metrics: async ctx => {
-        console.log('/metrics');
         let testResults;
         let test = new SpeedTest();
         await test.run()
@@ -44,7 +42,7 @@ class AppServer {
    * @returns {Promise}
    */
   start() {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
       this.server = this.app.listen(CONFIG.PORT);
       resolve(this.server);
     });

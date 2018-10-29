@@ -4,7 +4,7 @@ const pkg = require('./../../package.json');
 const os = require('os');
 
 router
-  .get('/metrics', async (ctx, next) =>  {
+  .get('/metrics', async ctx => {
     ctx.type = 'application/json';
     ctx.body = {
       ts: new Date().toJSON(),
