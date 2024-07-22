@@ -1,4 +1,4 @@
-FROM node:9-alpine@sha256:de0fc4272136f43c366f68681743b5717e2e7db7646b20c714005274cd638204
+FROM node:9-alpine@sha256:c812a92b98800c243bd4bafbc5a528b4fdf4bcd57a1d8de4192deded085ba6da
 MAINTAINER "Stefan Walther"
 
 ARG PORT=9696
